@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Server</title>
+</head>
+<body>
+    <h1> Hola desde el socket</h1>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        var sotcket=io();
+        sotcket.on('connect',function(){
+            console.log('Conectado el servidor');
+        });
+        sotcket.on('disconnect',function(){
+            console.log('Perdimos conexion el servidor');
+        });
+
+        sotcket.emit('mensaje',{nombre:'Jonathan',id:1,edad:30});
+
+        sotcket.on('mensaje',function(payload){
+            console.log('Escuchado',payload);
+        });
+    </script>
+</body>
+</html>
