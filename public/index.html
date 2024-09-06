@@ -22,6 +22,22 @@
         sotcket.on('mensaje',function(payload){
             console.log('Escuchado',payload);
         });
+        
+        sotcket.on('nuevo-mensaje',function(payload){
+            console.log('nuevo-mensaje',payload);
+            //sotcket.emit('nuevo-mensaje',payload); //emite a todos.
+            //sotcket.broadcast.emit('nuevo-mensaje',payload); //emite a todos menos el que lo emitio
+        });
+        sotcket.on('active-bands',function(payload){
+            console.clear();
+            console.table(payload);
+        });
+        /*sotcket.on('nuevo-mensaje',function(payload){
+            console.log('nuevo-mensaje',payload);
+        });*/
+        /*sotcket.on('vote-band',function(payload){
+            console.log(payload);
+        });*/
     </script>
 </body>
 </html>
